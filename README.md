@@ -33,6 +33,7 @@ Manually maintained by Anthony Fu with his preferred tools, setup conventions, a
 | Skill | Description |
 |-------|-------------|
 | [antfu](skills/antfu) | Anthony Fu's preferences and best practices for app/library projects (eslint, pnpm, vitest, vue, etc.) |
+| [cloudburst-agent](skills/cloudburst-agent) | Cloudburst-specific workflow for vibecoding Vue apps, importing Figma MCP context, and capturing prompts |
 
 ### Skills Generated from Official Documentation
 

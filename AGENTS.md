@@ -9,6 +9,27 @@ PLEASE STRICTLY FOLLOW THE BEST PRACTICES FOR SKILL: https://platform.claude.com
 - Ignore content that LLM agents already confident about in their training data.
 - Make the skill as concise as possible, avoid creating too many references.
 
+## Cloudburst Agent Quickstart
+
+This fork powers Cloudburst’s vibecoding workflow. Skills act as the **knowledge base**, while Copilot (or any MCP-aware agent) still plans and implements changes. Always load the skills first so the agent reasons with Cloudburst conventions instead of generic defaults.
+
+1. **Install** the curated skills locally:
+   ```bash
+   pnpx skills add Cloudburst-E/cb-skills --skill cloudburst-agent,vue,nuxt,pinia,vite,vitepress,vitest,unocss,pnpm
+   ```
+2. **Kick off any session** by telling Copilot Chat (or your MCP client):
+   > "Load the `cloudburst-agent` skill plus the relevant framework skills, then follow `core-agent-workflow` to plan this task."
+3. **Let the agent drive.** The skills provide context (packages, tokens, Figma intake), but the agent still decides how to implement, test, and document.
+4. **Close the loop.** After shipping work, update the relevant reference (for example `references/features-figma-mcp.md`) so the next run inherits what you learned. Use the prompt snippets in `guides-prompt-kit.md` to keep commands consistent.
+
+> Treat skills as living docs that make the agent smarter each run; the agent remains responsible for reasoning, coding, and verification.
+
+**TL;DR**
+
+1. Run the install command once.
+2. Start each chat with “Load `cloudburst-agent` + frameworks and follow `core-agent-workflow`.”
+3. After coding, jot any new lessons into the matching reference file.
+
 ## Skill Source Types
 
 There are two types of skill sources. The project lists are defined in `meta.ts`:
