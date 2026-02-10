@@ -71,4 +71,5 @@ export const vendors: Record<string, VendorSkillMeta> = {
  */
 export const manual = [
   'antfu',
+  'cloudburst-agent',
 ]
