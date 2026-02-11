@@ -9,19 +9,17 @@ metadata:
 
 # Vuetify Skill
 
-This skill provides concise, agent-friendly references generated from the official Vuetify documentation at https://vuetifyjs.com/en/.
+This skill sources its content from Vuetify's MCP payloads. Prefer the MCP-derived references and the `mcp-integration` guidance in `references/mcp-integration.md`.
 
 ## Core References
 
 | Topic | Description | Reference |
 |-------|-------------|-----------|
-| Overview | High-level Vuetify concepts | [core-overview](references/core-overview.md) |
-| Components | Component usage and patterns | [components](references/components.md) |
-| Theming | Theming, design tokens, customization | [theming](references/theming.md) |
-| Migration | Upgrade and migration guides | [migration](references/migration.md) |
+| MCP Integration | How to use the MCP payloads as the canonical source of truth for this skill | [mcp-integration](references/mcp-integration.md) |
 
 ## Usage
 
-- Load this skill for Vuetify-specific patterns, component examples, theming guidance, and migration notes.
+- Use `references/mcp-integration.md` and the MCP JSON payloads as the authoritative source when generating or refreshing derived references.
+- To regenerate from MCP, run: `node scripts/generate-skill-from-mcp.js <mcp-url>` and place the resulting payload under `skills/vuetify/references/`.
 
-<!-- Source: https://vuetifyjs.com/en/ -->
+<!-- Source: Vuetify MCP payloads -->

@@ -4,8 +4,8 @@
     "lib": ["ESNext"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
     "strict": true,
     "strictNullChecks": true,
     "noEmit": true,
@@ -14,4 +14,10 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   }
+  ,
+  "exclude": [
+    "sources",
+    "vendor",
+    "node_modules"
+  ]
 }
