@@ -3,48 +3,44 @@ name: cloudburst-agent
 description: Cloudburst-specific workflow for vibecoding Vue surfaces, importing Figma MCP context, and keeping skills self-maintaining.
 metadata:
   author: Cloudburst Engineering
-  version: "2026.2.10"
+  version: "2026.2.11"
   source: Cloudburst UI Monorepo + https://github.com/Cloudburst-E/cb-skills
 ---
 
 # Cloudburst Agent Skill
 
-> Use alongside the standard Vue/Nuxt/Vite skills whenever you touch the Cloudburst UI repos. It encodes how we plan work, reuse packages, translate Figma MCP nodes, and capture prompts so the system improves itself after every change.
+> `cb-agent` is the orchestrator. Load this skill (plus Vue/Nuxt/Vite) whenever you touch the Cloudburst UI repos so the agent squad follows the same intake → plan → build → document loop and escalates correctly.
 
-## Core References
-
-| Topic | Description | Reference |
-|-------|-------------|-----------|
-| Agent Workflow Loop | Intake → plan → build → document loop for every contribution. | [core-agent-workflow](references/core-agent-workflow.md) |
-| Vue Vibecoding | How to assemble Cloudburst surfaces with existing packages, tokens, and tests. | [core-vue-vibecoding](references/core-vue-vibecoding.md) |
-| Component Implementation | Naming, scaffolding, tokens, tests, and story expectations for new components. | [core-component-implementation](references/core-component-implementation.md) |
-| Package Standards | Required package.json, config files, dependencies, and typography rules. | [core-package-standards](references/core-package-standards.md) |
-
-## Features
-
-### Figma Integration
+## Orchestrator Runbook
 
 | Topic | Description | Reference |
 |-------|-------------|-----------|
-| MCP Intake Process | Step-by-step guide for turning Figma nodes into production Vue. | [features-figma-mcp](references/features-figma-mcp.md) |
-| Storybook Patterns | Playground + CompleteShowcase patterns, helper controls, and v-model guidance. | [features-story-patterns](references/features-story-patterns.md) |
+| Multi-Agent Orchestration | Routing, delegation, escalation, and decision-record rules for the whole squad. | [core-agent-orchestration](references/core-agent-orchestration.md) |
+| Agent Workflow Loop | Intake → plan → slice → verify → document loop every agent must follow. | [core-agent-workflow](references/core-agent-workflow.md) |
 
-## Guides
+## Specialist Skill Packs
+
+| Skill | Focus | Key References |
+|-------|-------|----------------|
+| [cb-product-agent](../cb-product-agent/SKILL.md) | Product briefs, UX/copy reviews, roadmap hygiene, MCP exports. | [roles-product-agent](../cb-product-agent/references/roles-product-agent.md) |
+| [cb-engineering-agent](../cb-engineering-agent/SKILL.md) | Architecture plans, component/package implementation, Storybook/tests. | [roles-engineering-agent](../cb-engineering-agent/references/roles-engineering-agent.md) |
+| [cb-ops-agent](../cb-ops-agent/SKILL.md) | Governance, change control, QA/preflight, ClickUp/GitHub automation, onboarding. | [roles-ops-agent](../cb-ops-agent/references/roles-ops-agent.md) |
+
+Use these skill packs in addition to the base frameworks so each specialist has self-contained references while `cb-agent` coordinates their output.
+
+## Cross-Agent Utilities
 
 | Topic | Description | Reference |
 |-------|-------------|-----------|
 | Prompt Kit | Battle-tested prompt snippets for Copilot + MCP tooling. | [guides-prompt-kit](references/guides-prompt-kit.md) |
-| Component Prompt Templates | Copy-ready component prompts for single or multi-component builds. | [guides-component-prompts](references/guides-component-prompts.md) |
-| Component Review Checklist | Quick verification list for tokens, stories, tests, and naming. | [guides-component-checklist](references/guides-component-checklist.md) |
-| Agent Usage | Simple “how to load and run” instructions for teammates. | [guides-agent-usage](references/guides-agent-usage.md) |
 
 ## Usage Notes
 
-- Always load `cloudburst-agent` plus the relevant framework skills before editing `frontend/`.
-- Run `pnpm run setup:agent` (in `frontend/`) once to install/update the full skills bundle, then use the “Cloudburst Agent Task” preset in VS Code to start chats already scoped to this workflow.
-- Reference `features-figma-mcp` when importing MCP data so components stay aligned with tokens and package boundaries.
-- Update the references whenever you introduce a new reusable pattern, prop surface, or workflow tweak—this is how the system stays self-maintaining.
-- Link pull requests back to the touched reference(s) so reviewers can keep docs and code in sync.
+- Run `pnpm run setup:agent` inside `frontend/` to install the bundle (`cloudburst-agent`, `cb-product-agent`, `cb-engineering-agent`, `cb-ops-agent`, plus Vue/Nuxt/Vite/etc.) from the local `cb-skills` checkout when available.
+- Start chats with `cb-agent`. It spins up product, engineering, and ops specialists automatically; escalate disagreements per [core-agent-orchestration](references/core-agent-orchestration.md).
+- `cb-agent` maintains the TODO board. Ask it to share owners/status, then have `cb-project-agent` mirror the same tasks in ClickUp. Ops remains the source of truth for approvals.
+- When you learn something reusable, ping `cb-learning-agent` so it files updates inside the relevant specialist skill; route any workflow/tooling edits through `cb-change-agent` before merging.
+- Always link PRs back to the reference files you touched so reviewers can confirm docs + code stay in lockstep.
 
 <!--
 Source references:

@@ -1,9 +1,10 @@
 ---
 name: core-vue-vibecoding
 description: Practical guide for composing Cloudburst Vue surfaces with existing packages, tokens, and tests
+owner: cb-engineering-agent
 ---
 
-# Vue Vibecoding Playbook
+# Vue Vibecoding Playbook (run by `cb-engineering-agent`)
 
 Translate design intent into production-ready Vue by leaning on the Cloudburst component packages and design system. This guide assumes `<script setup lang="ts">` and the base Vue/Vite skills are already loaded.
 
@@ -26,9 +27,10 @@ Translate design intent into production-ready Vue by leaning on the Cloudburst c
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useQuery } from '@tanstack/vue-query'
-import type { CbButtonVariant } from '@cloudburst-ui/button'
+import { Button, type ButtonProps } from '@cloudburst-ui/button'
+import { Title } from '@cloudburst-ui/title'
 
-const props = defineProps<{ label: string; variant?: CbButtonVariant }>()
+const props = defineProps<{ label: string; variant?: ButtonProps['variant'] }>()
 const emit = defineEmits<{ pressed: [] }>()
 
 const { data: listings } = useQuery({
@@ -42,8 +44,8 @@ const headline = computed(() => `${props.label} · ${listings.value?.length ?? 0
 <template>
   <section class="cb-panel">
     <header>
-      <cb-title :text="headline" size="md" />
-      <cb-button :variant="props.variant ?? 'primary'" @click="emit('pressed')">Act</cb-button>
+      <Title :level="'h4'">{{ headline }}</Title>
+      <Button :variant="props.variant ?? 'primary'" @click="emit('pressed')">Act</Button>
     </header>
   </section>
 </template>

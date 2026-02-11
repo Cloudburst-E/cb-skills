@@ -1,11 +1,12 @@
 ---
 name: core-agent-workflow
 description: Cloudburst agent runbook for planning, implementing, and documenting UI changes across repos
+owner: cb-agent
 ---
 
 # Cloudburst Agent Workflow
 
-Use this loop whenever the Copilot agent receives a natural-language build request for the Cloudburst UI stack. The goal is to keep delivery predictable, reproducible, and self-documenting.
+Use this loop whenever the Copilot agent receives a natural-language build request for the Cloudburst UI stack. The goal is to keep delivery predictable, reproducible, and self-documenting across the orchestrated team (`cb-agent` coordinates `cb-product-agent`, `cb-engineering-agent`, and `cb-ops-agent`).
 
 ## 1. Intake & Context Sweep
 
@@ -16,7 +17,7 @@ Use this loop whenever the Copilot agent receives a natural-language build reque
    - Tokens + themes start in `packages/design-tokens` and flow into `apps/web/src/plugins/vuetify.ts`.
    - Shared helpers (test, theme, scripts) live under `test_setup/` and `scripts/`.
 
-## 2. Plan Before You Type
+## 2. Plan Before You Type (cb-agent + cb-product-agent)
 
 1. Write a short task plan:
    - Data & state requirements (`Pinia`, `vue-query`, composables?).
@@ -29,14 +30,14 @@ Use this loop whenever the Copilot agent receives a natural-language build reque
    - `pnpm run type-check`
 3. Decide whether this work requires updating or adding a skill reference. If the answer is yes, reserve a section name now (e.g., `references/features-figma-mcp.md`).
 
-## 3. Build in Small, Testable Slices
+## 3. Build in Small, Testable Slices (cb-engineering-agent)
 
 1. Scaffold or update components in their owning package. Keep exports slim via each package's `src/index.ts`.
 2. Wire data/state hooks next, then templates/styles. Always import from `@cloudburst-ui/*` before reaching for ad-hoc markup.
 3. After each slice, run the narrowest possible verification command (unit test, story, or Vitest suite). Fix lint/type issues before continuing.
 4. Finish by running the workspace-level commands agreed upon during planning.
 
-## 4. Document & Propagate Knowledge
+## 4. Document & Propagate Knowledge (cb-ops-agent oversees)
 
 1. Update or add references under `skills/cloudburst-agent/references/*` when a new pattern, constraint, or workflow emerges.
 2. Record prompt snippets or agent operating tips inside `guides-prompt-kit.md` so future sessions can reuse them.

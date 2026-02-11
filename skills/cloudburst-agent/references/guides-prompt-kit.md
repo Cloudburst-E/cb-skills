@@ -1,11 +1,12 @@
 ---
 name: guides-prompt-kit
 description: Ready-to-use prompts for Copilot to leverage Cloudburst skills and workflows
+owner: cb-agent
 ---
 
 # Cloudburst Prompt Kit
 
-Use these lightweight prompts to steer Copilot (or any MCP-aware agent) toward the Cloudburst workflow. Customize the bracketed sections before sending.
+Use these lightweight prompts to steer Copilot (or any MCP-aware agent) toward the Cloudburst workflow. Customize the bracketed sections before sending. Start each chat with `cb-agent`; call out which specialist (product, engineering, ops) you want to lead if it is not obvious.
 
 ## 1. Figma → Vue Translation
 
@@ -32,6 +33,38 @@ Follow-up:
 > "Run through the `@cloudburst-ui/[package]` vitest suite in analysis mode. List flaky tests, missing interaction coverage, and the quickest way to add regression cases. Reference the Cloudburst agent workflow when proposing fixes."
 
 Keep this file short and actionable—when a new recurring prompt emerges, add it here and cross-link the relevant reference.
+
+## 6. Self-Improvement / Doc Updates
+
+> "Collect the following learnings from today’s session [...]. Have `cb-learning-agent` draft updates for [reference paths], add any new files needed, and summarize the changes so I can review the diff."
+
+Follow-up:
+
+> "Scan git history since the last release for undocumented patterns. Recommend which references `cb-learning-agent` should refresh and outline the edits."
+
+## 7. Telemetry / Status Reporting
+
+> "Ask `cb-devops-agent` for the current queue state, recent command failures, and any blocked tasks. Include owners, due dates, and the commands required to unblock them."
+
+Follow-up:
+
+> "Collect test/lint/build logs from the last run, attach them to this chat, and summarize actionable debugging steps for engineering."
+
+## 8. ClickUp / GitHub Sync
+
+> "Project-agent, create a ClickUp task under [list] for this TODO, fill in repo path `[path]`, link to [skill ref], and set owner to Engineering."
+
+Follow-up:
+
+> "Link GitHub PR #[number] and last Actions run to ClickUp task [ID]; update status to Review and post a comment summarizing blockers."
+
+## 9. Change Control / Approvals
+
+> "Change-agent, review the proposed edits to [files]. Summarize risks, required tests, and request my approval before applying them."
+
+Follow-up:
+
+> "List all pending change-control approvals for today, grouped by agent, and highlight anything blocking release notes."
 
 <!--
 Source references:

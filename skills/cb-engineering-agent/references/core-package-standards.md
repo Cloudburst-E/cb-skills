@@ -1,9 +1,10 @@
 ---
 name: core-package-standards
 description: Standard package structure, dependencies, and naming rules for Cloudburst UI components.
+owner: cb-engineering-agent
 ---
 
-# Package & Formatting Standards
+# Package & Formatting Standards (maintained by `cb-engineering-agent`)
 
 Apply these rules whenever you add or audit a package under `packages/`.
 
@@ -19,11 +20,10 @@ Apply these rules whenever you add or audit a package under `packages/`.
 | Component Type | Directory | Vue Export | Package Name |
 |----------------|-----------|------------|---------------|
 | Full feature | `packages/button/` | `Button.vue` | `@cloudburst-ui/button` |
-| Wrapper/adapter | `packages/cb-button/` | `index.ts` export | `@cloudburst-ui/cb-button` |
 
 Rules:
 - Use lowercase directories, PascalCase Vue filenames, and camelCase npm package scopes.
-- Reserve the `cb-` prefix for thin wrappers over Vuetify primitives. Anything with real behavior belongs to a non-prefixed package.
+- The `cb-` prefix is retired. Ship functionality inside first-class `@cloudburst-ui/*` packages so Storybook, tests, and tokens live next to the source.
 
 ## 3. Required Files
 

@@ -1,0 +1,5 @@
+# Generation Info
+
+- **Source:** Cloudburst ops/governance docs (`frontend/` repo + cb-skills references)
+- **Git SHA:** `4f15dd918ee1c7cc26a87412341ca14dca51d645`
+- **Generated:** 2026-02-11

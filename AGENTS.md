@@ -15,12 +15,12 @@ This fork powers Cloudburst’s vibecoding workflow. Skills act as the **knowled
 
 1. **Install** the curated skills locally:
    ```bash
-   pnpx skills add Cloudburst-E/cb-skills --skill cloudburst-agent,vue,nuxt,pinia,vite,vitepress,vitest,unocss,pnpm
+   pnpx skills add Cloudburst-E/cb-skills --skill cloudburst-agent,cb-product-agent,cb-engineering-agent,cb-ops-agent,vue,nuxt,pinia,vite,vitepress,vitest,unocss,pnpm
    ```
 2. **Kick off any session** by telling Copilot Chat (or your MCP client):
-   > "Load the `cloudburst-agent` skill plus the relevant framework skills, then follow `core-agent-workflow` to plan this task."
+   > "Load the `cloudburst-agent` skill (which routes to product, engineering, and ops) plus the relevant framework skills, then follow `core-agent-workflow` to plan this task."
 3. **Let the agent drive.** The skills provide context (packages, tokens, Figma intake), but the agent still decides how to implement, test, and document.
-4. **Close the loop.** After shipping work, update the relevant reference (for example `references/features-figma-mcp.md`) so the next run inherits what you learned. Use the prompt snippets in `guides-prompt-kit.md` to keep commands consistent.
+4. **Close the loop.** After shipping work, update the relevant reference (for example `references/features-figma-mcp.md`) so the next run inherits what you learned. Use the prompt snippets in `guides-prompt-kit.md` to keep commands consistent. See [../frontend/docs/agentic-workflow.md](../frontend/docs/agentic-workflow.md) for the cross-repo checklist.
 
 > Treat skills as living docs that make the agent smarter each run; the agent remains responsible for reasoning, coding, and verification.
 

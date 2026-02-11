@@ -6,6 +6,33 @@ A curated collection of [Agent Skills](https://agentskills.io/home) reflecting [
 > This is a proof-of-concept project for generating agent skills from source documentation and keeping them in sync.
 > I haven't fully tested how well the skills perform in practice, so feedback and contributions are greatly welcome.
 
+## Cloudburst Multi-Agent Workflow
+
+Cloudburst uses this fork as the canonical knowledge base for its orchestrated agent team. The `cb-agent` orchestrator loads domain skills, then hands work to product, engineering, and ops specialists defined in [skills/cloudburst-agent/SKILL.md](skills/cloudburst-agent/SKILL.md). Those specialists now live in their own skill packs ([skills/cb-product-agent](skills/cb-product-agent), [skills/cb-engineering-agent](skills/cb-engineering-agent), [skills/cb-ops-agent](skills/cb-ops-agent)) so each role can evolve independently.
+
+### Install the Cloudburst bundle
+
+```bash
+pnpx skills add Cloudburst-E/cb-skills --skill cloudburst-agent,cb-product-agent,cb-engineering-agent,cb-ops-agent,vue,nuxt,pinia,vite,vitepress,vitest,unocss,pnpm
+```
+
+Or, inside the Cloudburst frontend repo, run `pnpm run setup:agent` to execute [scripts/install-cloudburst-skills.ts](../frontend/scripts/install-cloudburst-skills.ts), which installs from the local checkout when available.
+
+### Agent team at a glance
+
+| Agent | Role | Key References |
+|-------|------|----------------|
+| `cb-agent` | Orchestrator that plans work, tracks TODOs, and routes knowledge updates. | [core-agent-orchestration](skills/cloudburst-agent/references/core-agent-orchestration.md), [core-agent-workflow](skills/cloudburst-agent/references/core-agent-workflow.md) |
+| `cb-product-agent` | UX, roadmap, and copy strategist. | [cb-product-agent skill](skills/cb-product-agent/SKILL.md), [roles-product-agent](skills/cb-product-agent/references/roles-product-agent.md) |
+| `cb-engineering-agent` | Implementation lead for components, packages, and tests. | [cb-engineering-agent skill](skills/cb-engineering-agent/SKILL.md), [core-component-implementation](skills/cb-engineering-agent/references/core-component-implementation.md) |
+| `cb-ops-agent` | Governance + conflict resolution. | [cb-ops-agent skill](skills/cb-ops-agent/SKILL.md), [roles-ops-agent](skills/cb-ops-agent/references/roles-ops-agent.md) |
+| `cb-project-agent` | ClickUp/GitHub project management, task sync, release docs. | [roles-project-agent](skills/cb-ops-agent/references/roles-project-agent.md), [features-clickup-integrations](skills/cb-ops-agent/references/features-clickup-integrations.md) |
+| `cb-learning-agent` | Self-improvement agent that ingests feedback and patches docs/skills. | [roles-learning-agent](skills/cb-ops-agent/references/roles-learning-agent.md) |
+| `cb-devops-agent` | Observability + tooling; logs, dashboards, status reports, and debugging helpers. | [roles-devops-agent](skills/cb-ops-agent/references/roles-devops-agent.md) |
+| `cb-change-agent` | Guardrail + approval workflow for any agentic system change. | [roles-change-control-agent](skills/cb-ops-agent/references/roles-change-control-agent.md) |
+
+Load `cb-agent` in Copilot Chat (or any MCP-aware client) and it will automatically engage the right specialists whenever tasks require cross-functional decisions. After each task, hand learnings to `cb-learning-agent`, have `cb-project-agent` sync ClickUp/GitHub + release docs, ping `cb-devops-agent` for status snapshots/emails, and route any skill/prompt/tooling edits through `cb-change-agent` so the team reviews improvements before they land.
+
 ## Installation
 
 ```bash
@@ -33,7 +60,10 @@ Manually maintained by Anthony Fu with his preferred tools, setup conventions, a
 | Skill | Description |
 |-------|-------------|
 | [antfu](skills/antfu) | Anthony Fu's preferences and best practices for app/library projects (eslint, pnpm, vitest, vue, etc.) |
-| [cloudburst-agent](skills/cloudburst-agent) | Cloudburst-specific workflow for vibecoding Vue apps, importing Figma MCP context, and capturing prompts |
+| [cloudburst-agent](skills/cloudburst-agent) | Cloudburst-specific orchestration workflow plus cross-agent prompt kit |
+| [cb-product-agent](skills/cb-product-agent) | Product strategy, UX heuristics, MCP intake, and component prompt templates |
+| [cb-engineering-agent](skills/cb-engineering-agent) | Implementation standards covering Vue vibecoding, package scaffolds, and reviews |
+| [cb-ops-agent](skills/cb-ops-agent) | Ops, governance, QA/preflight, ClickUp/GitHub automation, onboarding |
 
 ### Skills Generated from Official Documentation
 
