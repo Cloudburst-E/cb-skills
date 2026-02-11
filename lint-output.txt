@@ -1,0 +1,4 @@
+
+> @ lint C:\Users\ryant\Documents\Engineering\cb-skills
+> eslint .
+

@@ -1,5 +1,5 @@
 ---
-name: cb-agent
+name: CB Agent
 description: Cloudburst UI vibecoding agent with skills pre-loaded for Vue, Nuxt, Pinia, design tokens, and component patterns.
 argument-hint: A feature to build, component to implement, or task to complete (e.g., "Build a new button variant", "Fix badge alignment", "Create a form layout").
 skills: ['cloudburst-agent', 'vue', 'nuxt', 'pinia', 'vite', 'vitepress', 'vitest', 'unocss', 'pnpm']
