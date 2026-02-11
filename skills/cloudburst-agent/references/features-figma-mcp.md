@@ -1,9 +1,14 @@
 ---
 name: features-figma-mcp
 description: Figma MCP import workflow for translating design nodes into Cloudburst-ready Vue code
+owner:
+   - cb-product-agent
+   - cb-engineering-agent
 ---
 
 # Figma MCP Intake → Production Code
+
+`cb-product-agent` leads discovery (personas, UX heuristics) while `cb-engineering-agent` converts approved layouts into reusable Vue packages. Use this doc when both agents need a shared blueprint.
 
 Figma mockups capture intent quickly but rarely match the structure we ship. Use this workflow to translate MCP imports into maintainable Vue that reuses our design tokens and packages.
 
@@ -20,7 +25,7 @@ Figma mockups capture intent quickly but rarely match the structure we ship. Use
 
 1. **Select the node** in Figma that represents the atomic unit we plan to build (component, section, or page shell). Avoid exporting entire pages unless the change truly spans the whole screen.
 2. **Fetch design context** via MCP and inspect:
-   - Layer tree → map high-level containers to existing packages (`@cloudburst-ui/card`, `@cloudburst-ui/cb-pill`, etc.).
+   - Layer tree → map high-level containers to existing packages (`@cloudburst-ui/card`, `@cloudburst-ui/tag`, etc.).
    - Text styles → convert to typography tokens (`--cb-title-md`, `--cb-body-sm`).
    - Color variables → translate Figma tokens to `packages/design-tokens` semantics. Document any mismatch.
 3. **Decide on a build path**:
@@ -33,7 +38,7 @@ Figma mockups capture intent quickly but rarely match the structure we ship. Use
    - Encode variant logic (hover, active, statuses) as props instead of duplicated frames.
 5. **Ground in tokens**:
    - Colors: `background: var(--cb-surface-elevated);` rather than raw HEX from Figma.
-   - Typography: map to `packages/typography` utilities or `<cb-title>` variants.
+   - Typography: map to `packages/typography` utilities or the `<Title>` component variants.
    - Spacing/radius: use the design tokens or existing utility classes.
 6. **Validate interactions**:
    - Tie CTA buttons to actual emits or navigation events.

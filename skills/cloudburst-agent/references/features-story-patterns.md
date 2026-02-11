@@ -1,9 +1,10 @@
 ---
 name: features-story-patterns
 description: Canonical Storybook patterns for Cloudburst components (controls, Playground + CompleteShowcase, helper controls).
+owner: cb-engineering-agent
 ---
 
-# Storybook Patterns
+# Storybook Patterns (enforced by `cb-engineering-agent`)
 
 All components must ship with two stories: `Playground` (interactive) and `CompleteShowcase` (visual reference). Use these patterns to keep controls functional and predictable.
 

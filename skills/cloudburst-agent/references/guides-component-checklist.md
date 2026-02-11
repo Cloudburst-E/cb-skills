@@ -1,9 +1,10 @@
 ---
 name: guides-component-checklist
 description: Review checklist for Cloudburst components before accepting AI/generated changes.
+owner: cb-engineering-agent
 ---
 
-# Component Review Checklist
+# Component Review Checklist (run by `cb-engineering-agent`)
 
 Run through this list before merging any component work.
 
@@ -59,7 +60,7 @@ Run through this list before merging any component work.
 - [ ] Storybook renders states without console errors.
 - [ ] New prompts or learnings captured in skill references if applicable.
 
-Common red flags: hardcoded typography or transitions, exposing `modelValue` as a control, missing tokens, broken Storybook controls, missing test helper imports.
+Common red flags: hardcoded typography or transitions, exposing `modelValue` as a control, missing tokens, broken Storybook controls, missing test helper imports. Escalate unresolved disagreements about scope or UX to `cb-ops-agent`.
 
 <!--
 Source references:

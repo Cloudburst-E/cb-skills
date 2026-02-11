@@ -1,9 +1,10 @@
 ---
 name: guides-component-prompts
 description: Copy-ready prompts for spinning up Cloudburst components from Figma specs.
+owner: cb-product-agent
 ---
 
-# Component Prompt Template
+# Component Prompt Template (owned by `cb-product-agent`)
 
 One prompt handles single components, multiple components, and intake-only requests. Fill in the sections you need and delete the rest.
 
@@ -35,7 +36,7 @@ Optional Intake Notes:
 
 Tips:
 - Delete the extra component blocks when you only need one.
-- For discovery-only work, keep the “Goal” and “Figma node” sections and leave the implementation notes as “Plan only.”
+- For discovery-only work, keep the “Goal” and “Figma node” sections and leave the implementation notes as “Plan only,” handing the plan off to engineering once ops approves.
 - Pair this template with the Copilot preset so the agent already loads the proper skills before it sees the details.
 
 <!--

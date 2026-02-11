@@ -1,9 +1,10 @@
 ---
 name: core-component-implementation
 description: End-to-end instructions for building Cloudburst Vue components from Figma with Vuetify, tokens, and tests.
+owner: cb-engineering-agent
 ---
 
-# Component Implementation Blueprint
+# Component Implementation Blueprint (executed by `cb-engineering-agent`)
 
 Use this when building or reviewing any first-class Cloudburst component (the packages without the `cb-` prefix). It condenses the `.ai` implementation docs into one agent-friendly reference.
 
@@ -12,7 +13,7 @@ Use this when building or reviewing any first-class Cloudburst component (the pa
 - **Reuse first**: Scan `packages/` for components you can compose (buttons, breadcrumb, text-field, dropdown, etc.). Import `@cloudburst-ui/*` packages before rebuilding primitives.
 - **Name correctly**:
   - Full-featured component → `packages/component-name/` with `ComponentName.vue`, exported as `@cloudburst-ui/component-name`.
-  - Simple wrappers only use the `cb-` prefix (e.g., `cb-button`). Anything with state, variants, or heavy styling is *not* a `cb-` package.
+  - Legacy wrappers used the `cb-` prefix and have been removed. Do not reintroduce `@cloudburst-ui/cb-*` packages; promote every component to a first-class `@cloudburst-ui/*` module with real sources under `packages/<name>/`.
 - **Figma sweep**: For every state/variant gather width, padding, border, background, shadow, typography usage, and interactions. Confirm screenshots cover active, hover, focus, disabled, error, loading, etc.
 
 ## 2. Design Tokens First
