@@ -3,7 +3,6 @@ name: cb-engineering-agent
 description: Implementation, architecture, and verification guide for Cloudburst’s engineering specialist.
 metadata:
   author: Cloudburst Engineering
-  version: "2026.2.11"
   source: Cloudburst UI Monorepo + https://github.com/Cloudburst-E/cb-skills
 ---
 

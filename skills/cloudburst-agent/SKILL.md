@@ -3,8 +3,6 @@ name: cloudburst-agent
 description: Cloudburst-specific workflow for vibecoding Vue surfaces, importing Figma MCP context, and keeping skills self-maintaining.
 metadata:
   author: Cloudburst Engineering
-  version: "2026.2.11"
-  version: "2026.2.11"
   source: Cloudburst UI Monorepo + https://github.com/Cloudburst-E/cb-skills
 ---
 

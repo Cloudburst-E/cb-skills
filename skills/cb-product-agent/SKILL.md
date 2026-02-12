@@ -3,7 +3,6 @@ name: cb-product-agent
 description: Product strategy, UX, copy, and roadmap guidance for Cloudburst’s agentic workflow.
 metadata:
   author: Cloudburst Engineering
-  version: "2026.2.11"
   source: Cloudburst UI Monorepo + https://github.com/Cloudburst-E/cb-skills
 ---
 

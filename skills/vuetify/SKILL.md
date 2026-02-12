@@ -3,7 +3,6 @@ name: vuetify
 description: Vuetify docs synthesized into agent-focused references (components, theming, migration, API)
 metadata:
   author: Cloudburst
-  version: 2026.02.11
   source: https://vuetifyjs.com/en/
 ---
 

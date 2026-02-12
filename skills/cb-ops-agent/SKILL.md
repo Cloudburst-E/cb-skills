@@ -3,7 +3,6 @@ name: cb-ops-agent
 description: Governance, program management, QA, and enablement guidance for Cloudburst’s ops specialist.
 metadata:
   author: Cloudburst Engineering
-  version: "2026.2.11"
   source: Cloudburst UI Monorepo + https://github.com/Cloudburst-E/cb-skills
 ---
 

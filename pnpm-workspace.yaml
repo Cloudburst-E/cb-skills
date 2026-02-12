@@ -7,3 +7,5 @@ packages: []
 onlyBuiltDependencies:
   - esbuild
   - simple-git-hooks
+overrides:
+  vite: 5.4.20
