@@ -53,7 +53,7 @@ For projects that **already maintain their own skills**. We clone their repo as 
 
 ### Type 3: Hand-written Skills
 
-For skills that are written by Anthony Fu with his preferences, experience, tastes and best practices.
+For skills that are hand-maintained by project maintainers and Cloudburst contributors. Some content is adapted or inspired by community authors; see each skill's metadata for original attribution.
 
 You don't need to do anything about them unless being asked.
 
@@ -166,9 +166,9 @@ Also record the version of the tool/project when the skills were generated.
 name: {name}
 description: {description}
 metadata:
-  author: Anthony Fu
-  version: "2026.1.1"
-  source: Generated from {source-url}, scripts located at https://github.com/antfu/skills
+   author: Cloudburst Engineering
+   version: "2026.2.11"
+   source: Generated from {source-url}, scripts located at https://github.com/{package-name}/skills
 ---
 
 > The skill is based on {project} v{version}, generated at {date}.

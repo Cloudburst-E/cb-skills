@@ -67,7 +67,8 @@ export const vendors: Record<string, VendorSkillMeta> = {
 }
 
 /**
- * Hand-written skills with Anthony Fu's preferences/tastes/recommendations
+ * Hand-written skills with Cloudburst maintainers' preferences and curated adaptations
+ * (may include content originally inspired by community contributors).
  */
 export const manual = [
   'antfu',

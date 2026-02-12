@@ -4,8 +4,12 @@
   "packageManager": "pnpm@10.28.2",
   "scripts": {
     "lint": "eslint .",
+    "test": "node tools/developer-console/tests/run-tests.js",
+    "test:ci": "vitest --runInBand",
+    "test:node": "node tools/developer-console/tests/run-tests.js",
     "start": "node scripts/cli.ts",
-    "prepare": "simple-git-hooks && git submodule update --init --recursive"
+    "prepare": "simple-git-hooks && git submodule update --init --recursive",
+    "capture:screenshots": "node integrations/playwright-screenshots/screenshot-capture.js integrations/playwright-screenshots/pages.example.json out-screenshots"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^7.2.0",
@@ -14,7 +18,14 @@
     "eslint": "^9.39.2",
     "lint-staged": "^15.5.1",
     "simple-git-hooks": "^2.11.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^1.0.2",
+    "nock": "^13.3.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "5.4.20"
+    }
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

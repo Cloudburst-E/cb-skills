@@ -1,6 +1,6 @@
-# Anthony Fu's Skills
+# Cloudburst Skills
 
-A curated collection of [Agent Skills](https://agentskills.io/home) reflecting [Anthony Fu](https://github.com/antfu)'s preferences, experience, and best practices, along with usage documentation for the tools.
+A curated collection of [Agent Skills](https://agentskills.io/home) adapted and maintained by Cloudburst, with source material and references from upstream projects and community contributors.
 
 > [!IMPORTANT]
 > This is a proof-of-concept project for generating agent skills from source documentation and keeping them in sync.
@@ -36,13 +36,13 @@ Load `cb-agent` in Copilot Chat (or any MCP-aware client) and it will automatica
 ## Installation
 
 ```bash
-pnpx skills add antfu/skills --skill='*'
+pnpx skills add Cloudburst-E/cb-skills --skill='*'
 ```
 
 or to install all of them globally:
 
 ```bash
-pnpx skills add antfu/skills --skill='*' -g
+pnpx skills add Cloudburst-E/cb-skills --skill='*' -g
 ```
 
 Learn more about the CLI usage at [skills](https://github.com/vercel-labs/skills).
@@ -55,11 +55,11 @@ This collection is aim to be a one-stop collection of you are mainly working on 
 
 > Opinionated
 
-Manually maintained by Anthony Fu with his preferred tools, setup conventions, and best practices.
+Manually maintained by Cloudburst maintainers with curated preferences, conventions, and practical best practices. Some skills are adapted or inspired by upstream community contributors (see each skill's directory for original attribution).
 
 | Skill | Description |
 |-------|-------------|
-| [antfu](skills/antfu) | Anthony Fu's preferences and best practices for app/library projects (eslint, pnpm, vitest, vue, etc.) |
+| [antfu](skills/antfu) | Opinionated tooling and conventions adapted from Antfu's community patterns (eslint, pnpm, vitest, vue, etc.) |
 | [cloudburst-agent](skills/cloudburst-agent) | Cloudburst-specific orchestration workflow plus cross-agent prompt kit |
 | [cb-product-agent](skills/cb-product-agent) | Product strategy, UX heuristics, MCP intake, and component prompt templates |
 | [cb-engineering-agent](skills/cb-engineering-agent) | Implementation standards covering Vue vibecoding, package scaffolds, and reviews |
@@ -69,7 +69,7 @@ Manually maintained by Anthony Fu with his preferred tools, setup conventions, a
 
 > Unopinionated but with tilted focus (e.g. TypeScript, ESM, Composition API, and other modern stacks)
 
-Generated from official documentation and fine-tuned by Anthony.
+Generated from official documentation and curated by Cloudburst maintainers and community contributors.
 
 | Skill | Description | Source |
 |-------|-------------|--------|
@@ -129,14 +129,12 @@ See [AGENTS.md](AGENTS.md) for detailed generation guidelines.
 
 ## Sponsors
 
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg'/>
-  </a>
-</p>
+This project is maintained by Cloudburst. See the organization page for sponsorship information.
 
 ## License
 
 Skills and the scripts in this repository are [MIT](LICENSE.md) licensed.
 
 Vendored skills from external repositories retain their original licenses - see each skill directory for details.
+
+Note: The MIT license permits reuse, modification, and commercial use of the code, but does not transfer copyright ownership. Do not remove or alter the LICENSE file or existing copyright notices without explicit legal authority. This is a summary, not legal advice—consult legal counsel for commercial or distribution questions.

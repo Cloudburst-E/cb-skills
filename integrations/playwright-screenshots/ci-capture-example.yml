@@ -1,0 +1,31 @@
+name: Capture screenshots for PRs and Releases
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*.*.*']
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Start Storybook
+        run: pnpm --filter web dev & sleep 5
+      - name: Capture screenshots
+        run: |
+          node integrations/playwright-screenshots/screenshot-capture.js integrations/playwright-screenshots/pages.example.json out-screenshots
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ github.run_id }}
+          path: out-screenshots
+
+  # For release workflows, add steps to attach artifacts to the release using
+  # actions/upload-release-asset or to publish to a storage bucket (S3/GCS).

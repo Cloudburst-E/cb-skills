@@ -8,26 +8,26 @@ Purpose
 Required intake fields (short template)
 
 ```yaml
-title: "Short feature title"
-figma_url: "https://www.figma.com/file/:fileKey/...?node-id=1:2"
-figma_fileKey: ":fileKey"
-figma_node_id: "1:2"
+title: Short feature title
+figma_url: 'https://www.figma.com/file/:fileKey/...?node-id=1:2'
+figma_fileKey: ':fileKey'
+figma_node_id: '1:2'
 mcp: true
-target_package: "packages/button"
-priority: "P2"
-owner: "@githubHandle"
+target_package: packages/button
+priority: P2
+owner: '@githubHandle'
 acceptance_criteria:
-  - "Behavioral criteria in plain sentences"
-  - "Accessibility expectations (WCAG)"
+  - Behavioral criteria in plain sentences
+  - Accessibility expectations (WCAG)
 tests:
   unit: true
   storybook: true
   visual_regression: optional
   e2e: optional
-assets: ["png/svg exports if needed"]
-branch_name: "feat/button/ghost-secondary"
-estimated_effort: "1d"
-reviewers: ["@alice","@bob"]
+assets: [png/svg exports if needed]
+branch_name: feat/button/ghost-secondary
+estimated_effort: 1d
+reviewers: ['@alice', '@bob']
 ```
 
 Conventions / Guidance

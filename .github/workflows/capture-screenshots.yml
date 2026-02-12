@@ -1,0 +1,71 @@
+name: Capture screenshots for PRs and Releases
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch: {}
+  push:
+    tags: ['v*.*.*']
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Ensure Playwright is available
+        run: |
+          # Install Playwright temporarily in the runner without modifying package.json
+          npm install playwright --no-save
+          npx playwright install --with-deps
+
+      - name: Start Storybook
+        run: |
+          pnpm --filter web dev &
+          npx wait-on http://localhost:6006
+
+      - name: Capture screenshots
+        run: node cb-skills/integrations/playwright-screenshots/screenshot-capture.js cb-skills/integrations/playwright-screenshots/pages.example.json out-screenshots
+
+      - name: Upload screenshots artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ github.run_id }}
+          path: out-screenshots
+
+      - name: Comment on PR with thumbnails and run link
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const outDir = path.join(process.cwd(), 'out-screenshots');
+            const files = fs.existsSync(outDir) ? fs.readdirSync(outDir) : [];
+            // pick up to 3 thumbnails (files ending with -thumb.jpg)
+            const thumbs = files.filter(f => f.endsWith('-thumb.jpg')).slice(0,3);
+            const mdImages = thumbs.map(f => {
+              const buf = fs.readFileSync(path.join(outDir, f));
+              const b64 = buf.toString('base64');
+              return `![${f}](data:image/jpeg;base64,${b64})`;
+            }).join('\n\n');
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+            const artifactName = `screenshots-${process.env.GITHUB_RUN_ID}`;
+            const body = `${mdImages}\n\nScreenshots are attached as an artifact named **${artifactName}**.\n\nView the Action run: ${runUrl}\n\n(Artifacts are stored temporarily.)`;
+            const pr = context.payload.pull_request.number;
+            await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: pr, body });
+
+  # Note: For permanent storage / public links, add an S3/GCS upload step and pass secrets.

@@ -1,0 +1,12 @@
+[  
+  {
+    "name": "button-primary",
+    "url": "http://localhost:6006/iframe.html?id=button--primary",
+    "captureOptions": { "type": "jpeg", "quality": 80, "fullPage": false }
+  },
+  {
+    "name": "card-default",
+    "url": "http://localhost:6006/iframe.html?id=card--default",
+    "captureOptions": { "type": "jpeg", "quality": 80, "fullPage": false }
+  }
+]

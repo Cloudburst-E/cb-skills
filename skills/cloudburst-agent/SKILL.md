@@ -43,6 +43,53 @@ Use these skill packs in addition to the base frameworks so each specialist has 
 - When you learn something reusable, ping `cb-learning-agent` so it files updates inside the relevant specialist skill; route any workflow/tooling edits through `cb-change-agent` before merging.
 - Always link PRs back to the reference files you touched so reviewers can confirm docs + code stay in lockstep.
 
+## Response Format (recommended)
+
+Use a concise executive summary followed by an expandable technical details section. This pattern keeps chat responses scannable while preserving thorough context for reviewers.
+
+Example (Markdown with collapsible details):
+
+<details>
+<summary><strong>Executive summary</strong></summary>
+
+- One-line outcome (1–2 sentences)
+
+</details>
+
+<details>
+<summary><strong>Technical details</strong></summary>
+
+- Background and rationale
+- Files changed and rationale
+- Commands to run (fenced)
+
+```bash
+# example
+pnpm install
+pnpm run test
+```
+
+- Related links: PRs, ClickUp tickets, CI runs
+
+</details>
+
+Add this template to automated responses and assistant prompts so developers see the short answer first and can expand for more detail.
+
+## Developer Console (prototype)
+
+We include a lightweight VS Code developer-console prototype under `tools/developer-console/` that provides:
+
+- Quick search for GitHub PRs and issues (mocked by default), with links and copy actions.
+- ClickUp connectors present as stubs and disabled by default to avoid interacting with live accounts during testing.
+- A small webview UI to surface related PRs, CI status, and copyable response templates.
+
+Usage notes:
+
+- The ClickUp connector is intentionally stubbed/disabled by default to prevent accidental writes to production ClickUp accounts. Enable it only after local testing and providing a test token.
+- The GitHub connector returns mock data when no token is provided; when a token is supplied it can be extended to call the GitHub REST API.
+
+See `cb-skills/tools/developer-console/README.md` for details on running and testing the prototype.
+
 <!--
 Source references:
 - https://github.com/rhouse-cloudburst/frontend/blob/main/README.md
