@@ -24,6 +24,7 @@ metadata:
 | [cb-product-agent](../cb-product-agent/SKILL.md) | Product briefs, UX/copy reviews, roadmap hygiene, MCP exports. | [roles-product-agent](../cb-product-agent/references/roles-product-agent.md) |
 | [cb-engineering-agent](../cb-engineering-agent/SKILL.md) | Architecture plans, component/package implementation, Storybook/tests. | [roles-engineering-agent](../cb-engineering-agent/references/roles-engineering-agent.md) |
 | [cb-ops-agent](../cb-ops-agent/SKILL.md) | Governance, change control, QA/preflight, ClickUp/GitHub automation, onboarding. | [roles-ops-agent](../cb-ops-agent/references/roles-ops-agent.md) |
+| [cb-crew-agent](../../cb-crew/agents/factory.py) | Custom CB Crew agent for specific use cases and tasks. | [cb-crew-agent](../../cb-crew/docs/custom-agent-guide.md) |
 
 Use these skill packs in addition to the base frameworks so each specialist has self-contained references while `cb-agent` coordinates their output.
 
