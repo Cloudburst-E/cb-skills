@@ -10,6 +10,8 @@ A curated collection of [Agent Skills](https://agentskills.io/home) adapted and 
 
 Cloudburst uses this fork as the canonical knowledge base for its orchestrated agent team. The `cb-agent` orchestrator loads domain skills, then hands work to product, engineering, and ops specialists defined in [skills/cloudburst-agent/SKILL.md](skills/cloudburst-agent/SKILL.md). Those specialists now live in their own skill packs ([skills/cb-product-agent](skills/cb-product-agent), [skills/cb-engineering-agent](skills/cb-engineering-agent), [skills/cb-ops-agent](skills/cb-ops-agent)) so each role can evolve independently.
 
+> **New:** If you want to execute the same workflow via CrewAI, clone the sibling [`cb-crew`](../cb-crew/README.md) repo and use the Developer Console runtime selector (Command Palette → `Developer Console: Open`) to launch "CB Crew" runs. Skills remain the single source of truth; `cb-crew` consumes them via an adapter layer.
+
 ### Install the Cloudburst bundle
 
 ```bash
